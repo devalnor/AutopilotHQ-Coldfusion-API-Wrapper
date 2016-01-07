@@ -58,7 +58,7 @@
 			try{
 			 assert (foo);
 			}
-			catch(Application e){
+			catch(Any e){
 			  // should not allow complex objects. But what's the exception type here, CF?
 			}
 

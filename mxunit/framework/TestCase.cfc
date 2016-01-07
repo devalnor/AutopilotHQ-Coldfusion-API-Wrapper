@@ -193,6 +193,11 @@
 		<cfargument name="debug" type="boolean" required="false" default="false" hint="Flag to indicate whether or not to dump the test results to the screen.">
 		<cfargument name="output" type="string" required="false" default="jqGrid" hint="Output format: html,xml,junitxml,jqGrid "><!--- html,xml,junitxml,jqGrid --->
 
+
+		<cfif output is "json">
+			<cfcontent type="text/json"> 
+		</cfif>
+
 		<cfscript>
 			TestCase(this); //don't remove this. its breaks things (no I don't know why)
 
@@ -212,6 +217,7 @@
 				break;
 
 			case 'json':
+
 					writeoutput(this.result.getJSONResults());
 				break;
 
