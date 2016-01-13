@@ -19,6 +19,7 @@ component output="false" displayname=""  {
 		return this;
 	}
 
+
 	/**
 	* Get list of lists
 	* http://docs.autopilot.apiary.io/#reference/api-methods/lists/get-list-of-lists
@@ -29,9 +30,11 @@ component output="false" displayname=""  {
 		return response.responseJson;		
 	}
 
+
 	/**
-	* Add list
+	* Create a new list
 	* http://docs.autopilot.apiary.io/#reference/api-methods/lists/get-list-of-lists
+	* @name name of the new list
 	*/
 	public any function create(
 		required string name
@@ -41,6 +44,7 @@ component output="false" displayname=""  {
 		response = apiCall('POST','list',utils.serializeJSON(body));
 		return response.responseJson;		
 	}
+
 
 	/**
 	* Get contact on list
@@ -59,17 +63,49 @@ component output="false" displayname=""  {
 
 
 	/**
-	* Add a contact to a list
-	* http://docs.autopilot.apiary.io/#reference/api-methods/lists/get-list-of-lists
-	* 
-	* @trigger_id ID of the trigger
+	* Check if contact is on list
+	* @list_id ID of the list
 	* @contact_id_or_email Either the Autopilot contact_id e.g. person_9EAF39E4-9AEC-4134-964A-D9D8D54162E7, or the contact's email address.
-	*/
-	public any function xadd(
-		required string trigger_id,
+	 */
+	public any function has(
+		required string list_id,
 		required string contact_id_or_email
 	) {
-		response = apiCall('POST','trigger/#trigger_id#/contact/#contact_id_or_email#');
+		response = apiCall('GET','list/#list_id#/contact/#contact_id_or_email#');
+		if (response.statuscode is 200) 
+			return true; 
+		else 
+			return response.responseJson;		
+	}
+
+
+	/**
+	* Add contact to list
+	* @list_id ID of the list
+	* @contact_id_or_email Either the Autopilot contact_id e.g. person_9EAF39E4-9AEC-4134-964A-D9D8D54162E7, or the contact's email address.
+	 */
+	public any function add(
+		required string list_id,
+		required string contact_id_or_email
+	) {
+		response = apiCall('POST','list/#list_id#/contact/#contact_id_or_email#');
+		if (response.statuscode is 200) 
+			return true; 
+		else 
+			return response.responseJson;		
+	}
+
+
+	/**
+	* Add contact to list
+	* @list_id ID of the list
+	* @contact_id_or_email Either the Autopilot contact_id e.g. person_9EAF39E4-9AEC-4134-964A-D9D8D54162E7, or the contact's email address.
+	 */
+	public any function remove(
+		required string list_id,
+		required string contact_id_or_email
+	) {
+		response = apiCall('DELETE','list/#list_id#/contact/#contact_id_or_email#');
 		if (response.statuscode is 200) 
 			return true; 
 		else 
