@@ -101,10 +101,6 @@ component output="false" displayname=""  {
 	public any function  bulk(
 		required array contacts
 	) {
-		/*var body={};
-
-		body["contacts"]=arguments.contacts;
-		response = apiCall('POST','contacts',utils.serializeJSON(body));*/
 		return this.upsert(contacts);	
 	}
 
