@@ -9,7 +9,7 @@
 testSuite = createObject("component","mxunit.framework.TestSuite").TestSuite();
 testSuite.addAll("test.testAPI");
 testSuite.addAll("test.testContact"); 
-testSuite.addAll("test.testTrigger"); 
+testSuite.addAll("test.testJourney"); 
 testSuite.addAll("test.testList"); 
 
 results = testSuite.run();

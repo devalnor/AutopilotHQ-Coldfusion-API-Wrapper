@@ -8,10 +8,15 @@
         api = createObject("component","src.api");
         autopilot = createObject("component","src.autopilot");
         contact = createObject("component","src.contact");
+        list = createObject("component","src.list");
+        journey = createObject("component","src.journey");
         
         assertTrue(isObject(api));
         assertTrue(isObject(autopilot));
         assertTrue(isObject(contact));
+        assertTrue(isObject(list));
+        assertTrue(isObject(journey));
+        
        </cfscript>
    </cffunction>
 

@@ -17,7 +17,7 @@ component {
 
 		var autopilot = {};
 		autopilot['contact'] = new contact(api,utils);
-		autopilot['trigger'] = new trigger(api,utils);
+		autopilot['journey'] = new journey(api,utils);
 		autopilot['list'] = new list(api,utils);
 
 		return autopilot;

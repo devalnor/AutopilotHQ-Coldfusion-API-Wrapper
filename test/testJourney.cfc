@@ -9,9 +9,9 @@ component extends="mxunit.framework.TestCase"
     public void function testadd()
     {
       
-        response=autopilot.trigger.add("0001","john.smith@mail.com");
+        response=autopilot.journey.add("0001","john.smith@mail.com");
 
-        assertTrue(response,"Cannot trigger john.smith@mail.com");
+        assertTrue(response,"Cannot add john.smith@mail.com to a journey ");
     }
 
     public void function testlist()
