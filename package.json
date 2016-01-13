@@ -1,0 +1,16 @@
+{
+  "name": "autopilothq-coldfusion-api-wrapper",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/mxunit-watch/bin/mxunit-watch -l http://127.0.0.1:7979/test-list.cfm -H 127.0.0.1:7979 --test",
+    "start": "box server start host=127.0.0.1 port=7979",
+    "stop": "box stop"
+  },
+  "author": "Maxime de Visscher",
+  "license": "MIT",
+  "dependencies": {
+    "mxunit-watch": "github:devalnor/mxunit-watch"
+  }
+}
