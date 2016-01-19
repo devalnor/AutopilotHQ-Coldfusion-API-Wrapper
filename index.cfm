@@ -1,10 +1,4 @@
-<!---
-<cfsavecontent variable="result">
-<cfinvoke component="test.testAPI" method="runTestRemote" output="html">
-<cfinvoke component="test.testContact" method="runTestRemote" output="html">
-</cfsavecontent>
---->
-
+<cfsetting requesttimeout="180">
 <cfscript>
 testSuite = createObject("component","mxunit.framework.TestSuite").TestSuite();
 testSuite.addAll("test.testAPI");
