@@ -17,7 +17,7 @@ component extends="mxunit.framework.TestCase"
     public void function testlist()
     {
       
-        response=autopilot.trigger.list();
+        response=autopilot.journey.list();
         debug(response)
         assertIsDefined("response.triggers");
 
