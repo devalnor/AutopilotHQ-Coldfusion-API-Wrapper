@@ -97,7 +97,7 @@ component output="false" displayname=""  {
 
 
 	/**
-	* Add contact to list
+	* Remove a contact from a list
 	* @list_id ID of the list
 	* @contact_id_or_email Either the Autopilot contact_id e.g. person_9EAF39E4-9AEC-4134-964A-D9D8D54162E7, or the contact's email address.
 	 */
