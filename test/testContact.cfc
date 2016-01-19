@@ -4,7 +4,7 @@ component extends="mxunit.framework.TestCase"
 
     variables.autopilotapikey="74bed9e4c36b4177b646df14d54428d7";
     variables.serviceUrl="private-anon-46599800c-autopilot.apiary-mock.com/v1/"
-    variables.autopilot= new src.autopilot(autopilotapikey,serviceUrl);
+    variables.autopilot= new src.autopilot(autopilotapikey);
 
     public void function testadd()
     {
@@ -88,9 +88,17 @@ component extends="mxunit.framework.TestCase"
 
     public void function testdelete()
     {
-      
-        response=autopilot.contact.delete("john.smith@mail.com");
-        assertTrue(response,"Cannot delete john.smith@mail.com");
+
+
+        contact={};
+        contact["FirstName"]="Delete";
+        contact["LastName"]="Me";
+        contact["Email"]="delete.me@mail.com";
+        addcontact=autopilot.contact.add(contact);
+
+        response=autopilot.contact.add(contact);      
+        response=autopilot.contact.delete("delete.me@mail.com");
+        assertTrue(response,"Cannot delete delete.me@mail.com");
     }
 
 }
