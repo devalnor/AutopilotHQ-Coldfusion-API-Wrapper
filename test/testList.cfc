@@ -53,7 +53,7 @@ component extends="mxunit.framework.TestCase"
 		}
 		debug(lists);
 		response=autopilot.list.add(lists[1].list_id,"john.smith@mail.com");
-		debug(response);
+		assert(isBoolean(response), 'why?');
 		assertTrue(response);
 
 	}
@@ -69,6 +69,7 @@ component extends="mxunit.framework.TestCase"
 		debug(lists);
 		response=autopilot.list.has(lists[1].list_id,"john.smith@mail.com");
 		debug(response);
+		assert(isBoolean(response), 'why?');
 		assertTrue(response);
 
 	}
@@ -83,6 +84,7 @@ component extends="mxunit.framework.TestCase"
 		debug(lists);
 		response=autopilot.list.remove(lists[1].list_id,"john.smith@mail.com");
 		debug(response);
+		assert(isBoolean(response), 'why?');
 		assertTrue(response);
 
 	}
