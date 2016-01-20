@@ -1,6 +1,6 @@
 # Autopilote API Coldfusion Wrapper
 
-A Coldfusion / Lucee wrapper for [Autopilot](https://autopilothq.com/)'s [REST API](http://docs.autopilot.apiary.io/).
+A Coldfusion 10+ / Lucee 4.5+ wrapper for [Autopilot](https://autopilothq.com/)'s [REST API](http://docs.autopilot.apiary.io/).
 
 Example:
 
@@ -228,6 +228,7 @@ Also available:
 	|-------------|------------|----------|----------------------------------------------------------------------|
 	| `callback`  | `function` | No       | A callback function to be executed upon completion.                  |
 ### Account
+
 Not implemented
 
 ## Resources
