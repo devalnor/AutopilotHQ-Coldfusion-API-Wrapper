@@ -44,7 +44,7 @@ component output="false" displayname=""  {
 			body["contact"]=data;
 			response = apiCall('POST','contact',utils.serializeJSON(body));
 		}
-
+		
 		return response.responseJson;
 	}
 
@@ -70,7 +70,7 @@ component output="false" displayname=""  {
 		required string newemail
 	) {
 		var body={};
-		body["contact"]={}
+		body["contact"]={};
 		body["contact"]["Email"]=email;
 		body["contact"]["_NewEmail"]=newemail;
 
@@ -110,7 +110,7 @@ component output="false" displayname=""  {
 	* @contact_id_or_email Either the Autopilot contact_id e.g. person_9EAF39E4-9AEC-4134-964A-D9D8D54162E7, or the contact's email address.
 	*/
 	public any function get (
-		required string contact_id_or_email,
+		required string contact_id_or_email
 	) 
 	{
 		response = apiCall('get','contact/#contact_id_or_email#');
@@ -123,10 +123,11 @@ component output="false" displayname=""  {
 	* @contact_id_or_email Either the Autopilot contact_id e.g. person_9EAF39E4-9AEC-4134-964A-D9D8D54162E7, or the contact's email address.
 	*/
 	public any function delete (
-		required string contact_id_or_email,
+		required string contact_id_or_email
 	) 
 	{
 		response = apiCall('DELETE','contact/#contact_id_or_email#');
+
 		if (response.statuscode is 200) 
 			return true; 
 		else 
@@ -139,7 +140,7 @@ component output="false" displayname=""  {
 	* @contact_id_or_email Either the Autopilot contact_id e.g. person_9EAF39E4-9AEC-4134-964A-D9D8D54162E7, or the contact's email address.
 	*/
 	public any function unsubscribe (
-		required string contact_id_or_email,
+		required string contact_id_or_email
 	) 
 	{
 		response = apiCall('POST','contact/#contact_id_or_email#/unsubscribe');
@@ -155,11 +156,11 @@ component output="false" displayname=""  {
 	* @email The contact's email address.
 	*/
 	public any function subscribe (
-		required string email,
+		required string email
 	) 
 	{
 		var body={};
-		body["contact"]={}
+		body["contact"]={};
 		body["contact"]["Email"]=email;
 		body["contact"]["unsubscribed"]=false;
 		response = apiCall('POST','contact',utils.serializeJSON(body));
@@ -172,20 +173,23 @@ component output="false" displayname=""  {
 	private any function apiCall (
 		string httpMethod = 'GET',
 		string path = '/',
-		any body,
+		any body = '',
 		struct queryParams = {},
 		struct headers = {}
 		)
 	{
 
 		var apiResponse = variables.api.call(arguments.httpMethod,arguments.path,arguments.body);
-		apiResponse[ 'responseJson' ] = {}
+		apiResponse[ 'responseJson' ] = {};
 
 		if (not structKeyExists(apiResponse, "error"))	{
-			
+					
 			// Parse API answer
-			apiResponse[ 'responseJson' ] = deserializeJSON(apiResponse.rawData);
-
+			if (isJson(apiResponse.rawData)) {
+				apiResponse[ 'responseJson' ] = deserializeJSON(apiResponse.rawData);
+			} else {
+				apiResponse[ 'responseJson' ] = {};
+			}
 			// API issue
 			if ( apiResponse.statusCode != 200) {
 				apiResponse[ 'error' ] = apiResponse[ 'responseJson' ];

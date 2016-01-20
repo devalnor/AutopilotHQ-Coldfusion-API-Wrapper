@@ -6,11 +6,11 @@ component {
 
 	public any function init(
 		required string apikey,
-				 string serviceUrl
+				 string serviceUrl = variables.config.defaultserviceUrl
 		) {
 
 		variable.config.apikey = arguments.apikey;
-		variable.config.serviceUrl= arguments.serviceUrl ?: variables.config.defaultserviceUrl;    
+		variable.config.serviceUrl = arguments.serviceUrl;
 
 		var utils = new utils();
 		var api = new api(variable.config.apikey,variable.config.serviceUrl, utils);

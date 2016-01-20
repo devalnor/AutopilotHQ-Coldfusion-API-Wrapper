@@ -49,19 +49,23 @@ component output="false" displayname=""  {
 	private any function apiCall (
 		string httpMethod = 'GET',
 		string path = '/',
-		any body,
+		any body = '',
 		struct queryParams = {},
 		struct headers = {}
 		)
 	{
 
 		var apiResponse = variables.api.call(arguments.httpMethod,arguments.path,arguments.body);
-		apiResponse[ 'responseJson' ] = {}
+		apiResponse[ 'responseJson' ] = {};
 
 		if (not structKeyExists(apiResponse, "error"))	{
 			
 			// Parse API answer
-			apiResponse[ 'responseJson' ] = deserializeJSON(apiResponse.rawData);
+			if (isJson(apiResponse.rawData)) {
+				apiResponse[ 'responseJson' ] = deserializeJSON(apiResponse.rawData);
+			} else {
+				apiResponse[ 'responseJson' ] = {};
+			}
 
 			// API issue
 			if ( apiResponse.statusCode != 200) {

@@ -3,8 +3,9 @@ component extends="mxunit.framework.TestCase"
     hint="Test Basic API." {
 
     variables.autopilotapikey="74bed9e4c36b4177b646df14d54428d7";
-    variables.serviceUrl="private-anon-46599800c-autopilot.apiary-mock.com/v1/"
+    variables.serviceUrl="private-anon-46599800c-autopilot.apiary-mock.com/v1/";
     variables.autopilot= new src.autopilot(autopilotapikey);
+    //variables.autopilot= new src.autopilot(autopilotapikey,serviceUrl);
 
     public void function testadd()
     {
@@ -18,21 +19,24 @@ component extends="mxunit.framework.TestCase"
         response=autopilot.contact.add(contact);
  
         debug(response);
+        message="No message";
+        if (isDefined("response.message")) { message=response.message;}
 
-        assertFalse(isDefined("response.error"),response.message ?: "")
+        assertFalse(isDefined("response.error"),message);
         assertIsDefined("response.contact_id");
     
     }
-
+    
     public void function testchangeEmail()
     {
       
-        // Wait the server to get the first john doe
-        //sleep(2000);
         response=autopilot.contact.changeEmail("john.doe@mail.com","john.smith@mail.com");
         
-        debug(response);
-        writeOutput("string")
+        debug(response);    
+        message="No message";
+        if (isDefined("response.message")) { message=response.message;}
+
+        assertFalse(isDefined("response.error"),message);
         assertTrue(response,"Cannot change email");
     }
 
@@ -56,8 +60,11 @@ component extends="mxunit.framework.TestCase"
 
 
         response=autopilot.contact.bulk(contacts);
+        
+        message="No message";
+        if (isDefined("response.message")) { message=response.message;}
 
-        assertFalse(isDefined("response.error"),response.message ?: "")
+        assertFalse(isDefined("response.error"),message);
         assertIsDefined("response.contact_ids");
     }
 
