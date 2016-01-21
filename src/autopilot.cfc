@@ -9,9 +9,16 @@ component {
 				 string serviceUrl = variables.config.defaultserviceUrl
 		) {
 
+		// If empty serviceUrl, force the default one
+		if (arguments.serviceUrl is "") {arguments.serviceUrl = variables.config.defaultserviceUrl;}
+
+		// Save the Api Key
 		variable.config.apikey = arguments.apikey;
+
+		// Save the serviceUrl
 		variable.config.serviceUrl = arguments.serviceUrl;
 
+		// Init components
 		var utils = new utils();
 		var api = new api(variable.config.apikey,variable.config.serviceUrl, utils);
 
