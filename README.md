@@ -5,7 +5,7 @@ A Coldfusion 10+ / Lucee 4.5+ wrapper for [Autopilot](https://autopilothq.com/)'
 Example:
 
 ```coldfusion
-autopilot = src.autopilot("c5359558cf764d17bc49f13a87e8a56e");
+autopilot = new src.autopilot("c5359558cf764d17bc49f13a87e8a56e");
 
 contact={};
 contact["FirstName"]="John";
@@ -87,7 +87,7 @@ npm stop
 
 Begin by initializing with your API key:
 
-	autopilot = src.autopilot("c5359558cf764d17bc49f13a87e8a56e");
+	autopilot = new src.autopilot("c5359558cf764d17bc49f13a87e8a56e");
 
 Now you will be able to interact with Autopilot resources as described below.
 
