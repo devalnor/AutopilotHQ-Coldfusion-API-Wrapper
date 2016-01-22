@@ -185,7 +185,6 @@ Also available:
 
 * Method `autopilot.list.add();`
 * Return `boolean` or `struct` when error
-* Parameters:
 
 * Parameters:
 
@@ -222,11 +221,8 @@ Also available:
 
 * Method `autopilot.journey.list();`
 * Return `array` or `struct` when error
-* Parameters:
+* Parameters: none
 
-	| Name        | Type       | Required | Description                                                          |
-	|-------------|------------|----------|----------------------------------------------------------------------|
-	| `callback`  | `function` | No       | A callback function to be executed upon completion.                  |
 ### Account
 
 Not implemented
