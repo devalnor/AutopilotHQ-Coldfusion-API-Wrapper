@@ -4,7 +4,7 @@ A Coldfusion 10+ / Lucee 4.5+ wrapper for [Autopilot](https://autopilothq.com/)'
 
 Example:
 
-```coldfusion
+```
 autopilot = new src.autopilot("c5359558cf764d17bc49f13a87e8a56e");
 
 contact={};
@@ -234,10 +234,12 @@ Not implemented
 ## Resources
 
 [Autopilot REST API Documentation](http://docs.autopilot.apiary.io/)
+
 [Node.js wrapper](https://github.com/Torchlite/autopilot-api)
 
 ### Notes
 The old lay (mxunit) is patched by https://github.com/mxunit/mxunit/pull/43
+
 Structure and code base inspired from [aws-cfml](https://github.com/jcberquist/aws-cfml)
 
 ### Licences
