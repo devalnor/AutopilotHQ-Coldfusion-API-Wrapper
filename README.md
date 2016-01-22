@@ -238,7 +238,7 @@ Not implemented
 [Node.js wrapper](https://github.com/Torchlite/autopilot-api)
 
 ### Notes
-The old lay (mxunit) is patched by https://github.com/mxunit/mxunit/pull/43
+The "old lady" (mxunit) is patched by https://github.com/mxunit/mxunit/pull/43
 
 Structure and code base inspired from [aws-cfml](https://github.com/jcberquist/aws-cfml)
 
