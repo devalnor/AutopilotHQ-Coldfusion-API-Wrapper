@@ -7,10 +7,11 @@ Example:
 ```
 autopilot = new src.autopilot("c5359558cf764d17bc49f13a87e8a56e");
 
-contact={};
-contact["FirstName"]="John";
-contact["LastName"]="Smith";
-contact["Email"]="john.smith@mail.com";
+contact={
+"FirstName":"John",
+"LastName":"Smith",
+"Email":"john.smith@mail.com"
+};
 
 response=autopilot.contact.upsert(contact);
 
@@ -18,7 +19,7 @@ if (!structKeyExists(response, "error") {
 		writeDump(reponse);  
 } else {
 		writeOutput("<h1>Error</h1>");
-		writeDump(reponse);  
+		writeDump(response);  
 }
 
 ```
