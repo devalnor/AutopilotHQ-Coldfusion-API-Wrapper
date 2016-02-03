@@ -16,7 +16,7 @@ contact={
 response=autopilot.contact.upsert(contact);
 
 if (!structKeyExists(response, "error") {
-		writeDump(reponse);  
+		writeDump(response);  
 } else {
 		writeOutput("<h1>Error</h1>");
 		writeDump(response);  
