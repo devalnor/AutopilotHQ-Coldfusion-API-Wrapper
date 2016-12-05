@@ -24,7 +24,7 @@ component {
 
       for ( var header in request_headers ) {
           // if ( header.name == 'host' ) continue;
-          httpparam type = "header" name = lcase( header.name ) value = header.value;
+          cfhttpparam( type = "header", name = lcase( header.name ), value = header.value );
       }
 
       if ( arrayFindNoCase( [ 'POST','PUT' ], httpMethod ) && !isNull( arguments.body ) && isValid("string", body) ) {
