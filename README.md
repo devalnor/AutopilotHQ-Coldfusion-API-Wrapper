@@ -169,7 +169,7 @@ Also available:
 	| Name       | Type                | Required | Description                                                                           |
 	|------------|---------------------|----------|---------------------------------------------------------------------------------------|
 	| `list_id`     | `string` | Yes      | The `id` of the list to query. |
-		| `bookmark` | `string`   | No       | If there are more contacts on the list than have been returned, the bookmark will allow you to access the next group of contacts. |
+	| `bookmark` | `string`   | No       | If there are more contacts on the list than have been returned, the bookmark will allow you to access the next group of contacts. |
 	
 #### Check if Contact is in List
 
@@ -180,7 +180,7 @@ Also available:
 	| Name       | Type                | Required | Description                                                                           |
 	|------------|---------------------|----------|---------------------------------------------------------------------------------------|
 	| `list_id`     | `string` | Yes      | The `id` of the list to query. |
-		| `contact_id_or_email` | `string`   | Yes       | Either the Autopilot `contact_id` or the contact's email address. |
+	| `contact_id_or_email` | `string`   | Yes       | Either the Autopilot `contact_id` or the contact's email address. |
 		
 #### Add Contact to List
 
